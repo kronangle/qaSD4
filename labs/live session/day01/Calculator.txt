@@ -1,0 +1,24 @@
+a = float(input("First number: ? "))
+b = float(input("Second number: ? "))
+
+print ("""1- Add +
+2- Subtract -
+3- Multiply *
+4- Divide /
+5- Square s
+""")
+
+operation = input("Which operation would you like to use?")
+
+if operation == "1":
+    print("Addition:", a + b)
+elif operation == "2":
+    print("Subtration:", a - b)
+elif operation == "3":
+    print("Multiply:", a * b)
+elif operation == "4":
+    print("Divide:", a / b)
+elif operation == "5":
+    print("Square:", a*a , b*b)
+else:
+    print("Incorrect Input")

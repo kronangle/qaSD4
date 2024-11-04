@@ -1,0 +1,13 @@
+initialInvestment = int(input("Initial Investment: " ))
+interestRate = (int(input("Interest Rate; ")))/100
+targetValue = int(input("Target Value: "))
+yearsNeeded = 0
+
+
+while initialInvestment < targetValue:
+    initialInvestment = initialInvestment * (interestRate + 1)
+    yearsNeeded = yearsNeeded + 1
+    print ("Money at", initialInvestment, "after" , yearsNeeded, "years" )
+
+print("It will take", yearsNeeded, "for £100 to reach", initialInvestment)
+#answer = to yearsNeeded

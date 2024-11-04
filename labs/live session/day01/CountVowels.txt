@@ -1,0 +1,27 @@
+word = input("Please enter a word: ")
+
+vowels = 0
+
+for letter in word:
+    if letter == "a":
+        vowels += 1
+    if letter == "e":
+        vowels += 1
+    if letter == "i":
+        vowels += 1
+    if letter == "o":
+        vowels += 1
+    if letter == "u":
+        vowels += 1                    
+#if "a" in word:
+#    vowels +=1
+#if "e" in word:
+#    vowels +=1
+#if "i" in word:
+#   vowels +=1
+#if "o" in word:
+#    vowels +=1
+#if "u" in word:
+#    vowels +=1
+
+print("Number of vowels: ", vowels)

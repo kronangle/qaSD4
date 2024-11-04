@@ -1,0 +1,33 @@
+import math
+
+# c**2 = a**2 + b**2
+
+selection = input("""
+       Pythagoras’ Calculator
+1- Find the length of A given B and C
+2- Find the length of B given A and C
+3- Find the length of C given A and B
+                  
+    Enter Selection: 
+      """)
+
+if selection == "1":
+    # A?
+    b = int(input("Enter B: "))
+    c = int(input("Enter C: "))
+    a = math.sqrt(c**2 - b**2)
+    print(a)
+
+elif selection == "2":
+    # B?
+    a = int(input("Enter B: "))
+    c = int(input("Enter C: "))
+    b = math.sqrt(c**2 - a**2)
+    print(b)
+
+else:
+    # C?
+    a = int(input("Enter A: "))
+    b = int(input("Enter B: "))
+    c = math.sqrt(a**2 + b**2) 
+    print(c)

@@ -1,0 +1,21 @@
+
+
+selection = 0
+
+while selection < 9:
+    selection = input("""
+======  Time Calculator  ======
+1- Add 2 times
+2- Find the difference between 2 times
+3- Convert to Hours
+4- Convert to Minutes
+5- Convert Minutes to Time
+6- Convert Hours to Time
+7- Convert Days to Time
+8- Exit Enter an option: """)
+    
+    if selection == "1":
+        time1 = input("Enter first time: ")
+        time2 = input("Enter second time: ")
+
+        
