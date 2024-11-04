@@ -1,0 +1,44 @@
+--	Part 1
+/*
+SELECT fname, lname 
+FROM salesperson 
+WHERE sales_target IN (SELECT MAX(sales_target) FROM salesperson)
+
+It was safe to use '=' becuase there was only 1 highest value rather than IN a set of values
+
+
+SELECT emp_no AS 'emp nos of the people' FROM salesperson
+SELECT emp_no AS 'emp nos who have sold' FROM sale ORDER BY emp_no
+
+SELECT COUNT(DISTINCT(emp_no)) AS 'How many have sold' FROM sale
+*/
+
+--	Part 2
+/*
+
+
+SELECT D.dept_no, dept_name, manager, D.sales_target 
+FROM dept D --WHERE dept has no salesperson
+LEFT JOIN salesperson SP ON D.dept_no = SP.dept_no
+GROUP BY D.dept_no, dept_name, manager, D.sales_target
+HAVING COUNT(SP.emp_no) < 1
+
+
+SELECT * 
+FROM dept 
+WHERE NOT EXISTS (
+				SELECT 1 FROM salesperson WHERE salesperson.dept_no = dept.dept_no
+				)
+
+--p2) Use an in-line view to display salespeople 
+--    with the maximum sales_target for each person's department included in the results.
+*/
+SELECT SP.dept_no, fname, lname, sales_target, max_target 
+FROM salesperson SP
+JOIN (
+	SELECT dept_no, MAX(sales_target) as max_target
+	FROM salesperson
+	GROUP BY dept_no 
+)
+AS inline
+ON SP.dept_no = inline.dept_no

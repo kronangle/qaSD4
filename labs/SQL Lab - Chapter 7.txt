@@ -1,0 +1,30 @@
+/*
+sp_help company
+
+
+
+CREATE VIEW London
+AS 
+SELECT company_no, name, county
+FROM company
+WHERE county = 'London'
+WITH CHECK OPTION
+
+
+
+SELECT * FROM London
+
+
+
+
+ALTER VIEW London
+AS
+SELECT company_no, name, post_code, county
+FROM company
+WHERE county = 'London'
+WITH CHECK OPTION
+
+SELECT name, post_code FROM London WHERE post_code LIKE 'N%' ORDER BY post_code
+*/
+INSERT INTO london
+VALUES	(5000, 'ABC CO','RF45 7GH', 'ESSEX')

@@ -1,0 +1,8 @@
+length = int ( input("Whats the rectangle length?"))
+width = int (input("Whats the rectangle width?"))
+
+perimeter = (length + width)*2
+print ("The perimeter is" , perimeter)
+
+area = (length * width)
+print ("The area is", area)

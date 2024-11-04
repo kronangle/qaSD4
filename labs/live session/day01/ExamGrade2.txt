@@ -1,0 +1,27 @@
+examMark = int(input("What is exam mark?"))
+studentLevel = input("What is the student level?")
+
+if studentLevel == "1":
+    if 1 < examMark > 100:
+        print("The grade must be between 1 and 100")
+    elif examMark < 50:
+        print("Fail")
+    elif 50 <= examMark <= 60:
+        print("Pass")
+    elif 61 <= examMark <= 70:
+        print("Merit")
+    else:
+        print("Distinction")
+elif studentLevel == "2":
+    if 1 < examMark > 100:
+        print("The grade must be between 1 and 100")
+    elif examMark < 40:
+        print("Fail")
+    elif 40 <= examMark <= 50:
+        print("Pass")
+    elif 51 <= examMark <= 65:
+        print("Merit")
+    else:
+        print("Distinction")
+else:
+    print("Incorrect input for student level")

@@ -1,0 +1,8 @@
+-- Part 1
+
+SELECT manager AS name, 'm' AS Type FROM dept
+UNION
+SELECT fname + ' ' + lname AS name, 'p' AS Type FROM salesperson
+UNION
+SELECT name, 'c' AS TYPE FROM contact
+ORDER BY Type

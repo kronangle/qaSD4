@@ -1,0 +1,78 @@
+/*
+CREATE TABLE review 
+(
+   emp_no 		INT		 	NOT NULL,
+   review_date 	DATETIME   	NOT NULL,      
+   grade 		CHAR(1) 	NULL
+)
+
+ALTER TABLE review
+ADD notes VARCHAR(40) NULL
+
+sp_help review 
+
+INSERT INTO review         
+VALUES	(23, '05-12-2006', 'A','He is happy')
+
+INSERT INTO review           
+VALUES	(23, '09-30-2006', 'A','He is still happy')
+
+SELECT 	*
+FROM 	review
+
+DROP TABLE review
+
+CREATE TABLE review
+(
+	emp_no		INT		 	NOT NULL,
+	review_date DATETIME	NOT NULL,
+	grade		CHAR(1)	    NULL,
+	CONSTRAINT pk_review PRIMARY KEY(emp_no, review_date),
+	CONSTRAINT fk_salesperson_link FOREIGN KEY(emp_no)  REFERENCES salesperson
+)
+
+INSERT INTO 	review
+VALUES		(40, '05-12-2006', 'A')
+
+SELECT 	*
+FROM 	review
+
+It added a row to the table and worked because emp_no40 exists as a record in salesperson
+
+
+INSERT INTO 	review
+VALUES		(90, '05-12-2006', 'A')
+
+It failed to add a row as emp_no 90 does not exist for the foreign key reference
+
+
+UPDATE review
+SET    emp_no = 41 
+WHERE  emp_no = 40 
+Cant change the foregin key to something that does not exist
+
+DELETE FROM salesperson
+WHERE  emp_no = 40
+Can't delete a record that is being referenced
+
+UPDATE salesperson
+SET    emp_no = 41
+WHERE  emp_no = 40
+Can't change record that is being referenced
+
+
+DELETE FROM dept
+
+
+
+
+DELETE FROM sale
+*/
+INSERT INTO sale VALUES(100, 60, 1000, 'MM',  7.00, '06-24-2006', 'Toshiba 6700 Pro' )
+INSERT INTO sale VALUES(200, 60, 3000, 'QQ',  6.00, '05-01-2006', 'MS Office Professional * 30' )
+INSERT INTO sale VALUES(300, 60, 2000, 'OO', 12.00, '07-14-2006', 'ScanPRO 4800 Scanner' )
+INSERT INTO sale VALUES(400, 10, 1000, 'MM',  5.00, '08-09-2006', 'Modems and Cables etc' )
+INSERT INTO sale VALUES(500, 60, 4000, 'TT',  2.00, '07-23-2006', 'Laser printer' )
+INSERT INTO sale VALUES(600, 50, 3000, 'PP', 27.00, '05-23-2006', 'Complete Desktop Publishing System' )
+INSERT INTO sale VALUES(700, 10, 2000, 'OO',  3.00, '01-23-2006', 'SQL Server 2007 20 user licence' )
+INSERT INTO sale VALUES(800, 60, 3000, 'RR',  3.00, '11-15-2006', 'Printer cartridges' )

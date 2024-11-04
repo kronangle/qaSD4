@@ -1,0 +1,39 @@
+--SELECT * FROM contact
+
+/*
+INSERT INTO contact
+VALUES (4000, 'MM', 'Marvellous Marvin', 'Magician', NULL, NULL)
+
+SELECT 	manager
+FROM 	dept
+WHERE 	manager LIKE '%X%'
+
+DELETE  FROM dept
+WHERE 	manager LIKE '%X%'
+
+SELECT * 
+FROM dept
+
+SELECT * FROM dept
+
+UPDATE 	dept 
+SET 	sales_target = sales_target + 5  
+
+SELECT * FROM dept
+
+SELECT * FROM contact
+
+UPDATE 	contact
+SET 	job_title =  'VP of Development', tel = '01242-112233 Ext 444'
+WHERE 	name = 'Ricky Rambo'
+
+SELECT * FROM contact
+*/
+SELECT * FROM company
+
+UPDATE company
+SET name = 'Icicle Igloos PLC'
+WHERE company_no = 2000   
+
+SELECT * FROM company
+

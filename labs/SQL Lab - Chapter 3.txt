@@ -1,0 +1,28 @@
+--	Part 1
+-- SELECT * FROM company
+-- SELECT dept_no, manager, dept_name FROM dept
+-- SELECT order_no, order_value FROM sale
+-- SELECT order_no, order_value*1.1 value_with_shipping FROM sale
+-- SELECT lname, (sales_target/4) 'Quarterly Target' FROM salesperson ORDER BY sales_target DESC, lname
+-- SELECT emp_no, dept_no, fname + ' ' + lname AS 'Full Name' FROM salesperson
+-- SELECT emp_no, dept_no, SUBSTRING(fname, 1, 1)+'.'+SUBSTRING(lname, 1, 1) Initials FROM salesperson
+-- SELECT DISTINCT emp_no FROM sale
+-- SELECT DISTINCT dept_no, county FROM salesperson
+-- SELECT DATEPART(MONTH, order_date ) month FROM sale ORDER BY month
+
+--	Part 2
+-- SELECT name FROM company WHERE county = 'London'
+-- SELECT * FROM sale WHERE order_value > 6
+-- SELECT order_value, description FROM sale WHERE company_no = 3000 AND emp_no = 60
+-- SELECT * FROM sale WHERE order_value BETWEEN 10 AND 30
+-- SELECT * FROM sale WHERE order_value BETWEEN 10 AND 30 AND emp_no = 10 OR emp_no = 50
+-- SELECT * FROM sale WHERE order_value BETWEEN 10 AND 30 AND emp_no IN (10,50)
+-- SELECT * FROM dept WHERE (dept_name LIKE '%SYS%' OR sales_target < 10) AND (manager <> ('Barbara Banana'))
+-- SELECT name, tel FROM contact WHERE SUBSTRING(tel, 1, 6) LIKE '%0207%'
+-- SELECT order_no, order_date FROM sale WHERE DATEPART(MONTH, order_date) IN (5, 7)
+
+--	Part 3
+-- SELECT emp_no, post_code FROM salesperson WHERE post_code <> ('NULL')
+-- SELECT emp_no, COALESCE(post_code, 'Postcode unknown') AS Postcode FROM salesperson
+-- SELECT	emp_no, post_code FROM 	salesperson -- IT WILL RETURN 5 ROWS when WHERE clause is added
+

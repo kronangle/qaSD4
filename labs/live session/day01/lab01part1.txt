@@ -1,0 +1,10 @@
+print("Hello World")
+
+name = input("Whats your name?")
+age = int(input("Whats your age?"))
+salary = float(input("Whats your salary"))
+
+print ("Hello, " + name)
+print ("Your age is: ", age)
+print ("Your salary is:", salary)
+print ("Next year your age will be ", (age+1), "and your salary will be" , (salary*1.15))

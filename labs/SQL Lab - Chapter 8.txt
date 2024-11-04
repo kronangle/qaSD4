@@ -1,0 +1,63 @@
+--	Part 1
+
+--p1) Display the sum and average of the sales_targets as well as a count 
+--    of the number of salespeople. (1 row 3 columns!)
+
+--SELECT SUM(sales_target) as Total, AVG(sales_target) as Average, COUNT(emp_no) as 'No of sales people'  FROM salesperson
+/*
+SELECT D.dept_no, SUM(SP.sales_target) as Total, AVG(SP.sales_target) as Average, COUNT(*) as 'No of sales people'  
+FROM salesperson SP 
+INNER JOIN dept D 
+ON D.dept_no = SP.dept_no
+
+
+--SELECT dept_no, SUM(sales_target) as Total, AVG(sales_target) as Average, COUNT(emp_no) as 'No of sales people'  FROM salesperson GROUP BY dept_no
+
+SELECT	SP.dept_no, 
+		dept_name, 
+		SUM(SP.sales_target) as Total, 
+		AVG(SP.sales_target) as Average, 
+		COUNT(emp_no) as 'No of sales people'  
+		FROM salesperson SP 
+		INNER JOIN dept D 
+		ON D.dept_no = SP.dept_no
+		GROUP BY SP.dept_no, D.dept_name
+
+
+--	Part 2
+
+SELECT	dept_name 
+FROM salesperson SP 
+INNER JOIN dept D 
+ON D.dept_no = SP.dept_no
+GROUP BY D.dept_name
+HAVING COUNT(*) >1
+
+
+SELECT	CONT.name 'Contact', COMP.name 'Company'
+FROM 	contact CONT INNER JOIN company COMP
+        ON CONT.company_no = COMP.company_no
+
+--Display a COUNT of the number of contacts per company name (4 rows).
+
+-- company name		number of contacts
+
+SELECT COMP.name, COUNT(CONT.company_no) as 'Total number of contacts' FROM company COMP INNER JOIN contact CONT ON CONT.company_no = COMP.company_no  GROUP BY COMP.name
+
+INSERT INTO company 
+VALUES( 5000, 'ABC Ltd(no contacts)',	 '(01456)346782', 'Dorset' , 'ST8 3RG' )
+
+SELECT COMP.name, COALESCE(COUNT(CONT.company_no), 'Companies without contacts') as 'Total number of contacts' FROM company COMP LEFT JOIN contact CONT ON CONT.company_no = COMP.company_no  GROUP BY COMP.name
+
+CREATE VIEW NoOfContacts 
+AS
+SELECT COMP.name, COALESCE(COUNT(CONT.company_no), 'Companies without contacts') as 'Total number of contacts' 
+FROM company COMP 
+LEFT JOIN contact CONT ON CONT.company_no = COMP.company_no  
+GROUP BY COMP.name
+
+SELECT * FROM NoOfContacts 
+ORDER BY 'Total number of contacts' DESC
+*/
+
+DELETE FROM company WHERE company_no = 5000

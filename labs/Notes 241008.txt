@@ -1,0 +1,5 @@
+AWS Python instance public IPv4 address:
+
+34.220.56.216
+
+Was only for one instance, IP wont work anymore
