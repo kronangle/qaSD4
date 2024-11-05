@@ -1,0 +1,48 @@
+with open("manufacturers.csv" , "r") as file:
+    line = file.readline().strip()
+    
+maunfacturers = line.split(",")
+
+print(maunfacturers)
+
+with open("carSale.csv" , encoding="utf-8-sig") as file:
+    lines = file.readlines()
+
+
+carSales = []
+
+for line in lines:
+    line.strip()
+    tempSales = list(map(int, line.split(",")))
+    
+    totalSale = sum(tempSales)
+    carSales.append(totalSale)
+    
+i = 0
+while i < len(maunfacturers):
+    print (f"Company: {maunfacturers[i]} | {carSales[i]}")
+    i += 1
+
+months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug"]
+i = 0 
+while i < len(maunfacturers):
+    print(f"Company: {maunfacturers[i]}")
+   # print("Running A", i, "times")
+
+    with open("carSale.csv" , encoding="utf-8-sig") as file:
+        lines = file.readlines()
+    
+    #k=0
+    #for line in lines:
+    lines[i].strip()
+    tempSales = list(map(int, lines[i].split(",")))
+    #print("Running B", k, "times")
+    #k += 1
+
+    j = 0
+    for sale in tempSales:
+        print(months[j], "|", sale)
+       # print("Running C", j, "times")
+        j += 1
+        
+    i += 1 

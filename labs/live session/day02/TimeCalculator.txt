@@ -1,0 +1,42 @@
+#   INCOMPLETE
+
+selection = 0
+
+def splitTime (time):
+    splitTime = time.split(":")
+    return list(map(int, splitTime))
+
+
+while selection < 9:
+    selection = int(input("""
+======  Time Calculator  ======
+1- Add 2 times
+2- Find the difference between 2 times
+3- Convert to Hours
+4- Convert to Minutes
+5- Convert Minutes to Time
+6- Convert Hours to Time
+7- Convert Days to Time
+8- Exit 
+        Enter an option: """))
+    
+    if selection == 1:
+        time1 = splitTime(input("Enter first time (DD:HH:MM): "))
+        time2 = splitTime(input("Enter second time (DD:HH:MM): "))
+
+        print(time1 , time2)                                                                                                                                                                                                                                                                          
+
+        #minutes
+        totalSeconds = time1[2] + time2[2]
+        print(totalSeconds)
+        print(totalSeconds % 60)
+
+        #hours
+        totalMinutes = time1[1] + time2[1]
+        print(totalMinutes)
+        print(totalMinutes % 60)
+
+        #days
+        totalHours = time1[0] + time2[0]
+        print(totalHours)
+        print(totalHours % 24)

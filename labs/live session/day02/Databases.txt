@@ -1,0 +1,77 @@
+import pyodbc 
+
+connectionString = r'DRIVER={SQL Server};SERVER=STUDENT05\SQLExpress;DATABASE=northwind;Trusted_Connection=yes'
+
+createSql = """CREATE TABLE Student (
+            StudentID   int NOT NULL,
+            FirstName   nvarchar(40) NOT NULL,
+            Surname     nvarchar(30) NULL,
+            Course      nvarchar(30) NULL,
+            City        nvarchar(15) NULL)"""
+
+sglInsertSql = """      INSERT INTO Student (StudentID, FirstName, Surname, Course, City) 
+                        VALUES ('82','Andrew','Garlick','Computers','London')"""
+
+updateSql = " UPDATE Student SET City='North London' WHERE City='London'  "
+
+def doData(sql):
+    conn = pyodbc.connect(connectionString)
+    cur = conn.cursor()
+    cur.execute(sql)
+    conn.commit()
+    conn.close()
+
+    #------  MAIN    -----
+
+selection = int(input("""Database actions:
+                          1. Create Table
+                          2. Insert values from file
+                          3. Insert single entry
+                          4. Update record
+
+                          Choose Action: 
+                          """))
+
+if selection == 1:
+    try:
+        doData(createSql)
+    except Exception as ex:
+        print("Oops!", ex)
+
+elif selection == 2:
+    with open("studentData.csv", encoding="utf-8-sig") as file:
+        header = file.readline()
+        lines = file.readlines()
+
+    for line in lines:
+        line.strip()
+        records = line.split(",")
+        print( records)
+
+        id = records[0]
+        fname = records[1]
+        sname = records[2]
+        course = records[3]
+        city = records[4]
+
+        try:
+            doData(f"""   INSERT INTO Student (StudentID, FirstName, Surname, Course, City) VALUES ('{id}','{fname}','{sname}','{course}','{city}')
+                  """)
+        except Exception as ex:
+            print("Could not insert", ex)
+
+
+elif selection == 3:
+    try:
+        doData(sglInsertSql)
+    except Exception as ex:
+        print(ex)
+
+elif selection == 4:
+    try:
+        doData(updateSql)
+    except Exception as ex:
+        print(ex)
+
+else:
+    print("Invalid Selection")
