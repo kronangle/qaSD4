@@ -1,0 +1,15 @@
+package lab08;
+
+public class Program {
+
+	public static void main(String[] args) {
+		Account acc1 = new Account();
+		
+		acc1.deposit(500);
+		acc1.withdraw(325);
+		
+		acc1.getDetails();
+
+	}
+
+}
