@@ -1,0 +1,67 @@
+package lab09;
+
+import java.awt.Color;
+
+public class Ball {
+
+//	Declarations
+	public int x, y, w, h;
+	private int dirX, dirY;
+	static int worldW;
+	static int worldH;
+	
+	public Color color = Color.BLACK;
+
+//	x and y is top left point
+//	w and h is the size of ball
+//	dirX and dirY is the direction of the ball
+
+	public Ball(int x, int y, int w, int h, int dirX, int dirY, Color color) {
+		this.x = x;
+		this.y = y;
+		this.w = w;
+		this.h = h;
+		this.dirX = dirX;
+		this.dirY = dirY;
+		this.color = color;
+	}
+
+	public Ball(int x, int y, int w, int h, int dirX, int dirY) {
+		this(x, y, w, h, 3, 3, Color.BLACK);
+	}
+	
+	public Ball(int x, int y, int w, int h) {
+		this(x, y, w, h, 3, 3);
+	}
+	
+	public static void setWorld(int w, int h) {
+		Ball.worldW = w;
+		Ball.worldH = h;
+	}
+	
+	public void move() {
+		x += dirX;
+		y += dirY;
+		
+		if (x < 0) {
+			x = 0;
+			dirX = -dirX;
+		}
+		
+		if (x > worldW - w) {
+			x = worldW - w;
+			dirX = -dirX;
+		}
+		
+		if (y < 0) {
+			y = 0;
+			dirY = -dirY;
+		}
+		
+		if (y > worldH - h) {
+			y = worldH - h;
+			dirY = -dirY;
+		}
+		
+	}
+}
