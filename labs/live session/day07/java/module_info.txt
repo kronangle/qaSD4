@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+/**
+ * 
+ */
+module lab01 {
+	requires java.desktop;
+	requires gson;
+	requires java.sql;
+	exports lab12;
+	opens lab12;
+}
