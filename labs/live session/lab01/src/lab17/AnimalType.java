@@ -1,0 +1,5 @@
+package lab17;
+
+enum AnimalType {
+	FISH, AMPHIBIAN, REPTILE, MAMMAL, BIRD, INVERTEBRATE
+}

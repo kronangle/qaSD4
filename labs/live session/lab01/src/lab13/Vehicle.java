@@ -1,0 +1,56 @@
+package lab13;
+
+public class Vehicle {
+	
+	private int speed;
+	private int lane;
+	private RegistrationPlate registrationPlate;
+	
+	private int distanceTravelled;
+	
+	static int count = 0;
+
+	public Vehicle(int speed, int lane) {
+		try {
+			this.speed = speed;
+			this.lane = lane;
+			registrationPlate = RegistrationPlateFactory.getNextRegistrationPlate();
+			Vehicle.count++;
+		} catch (ArrayIndexOutOfBoundsException e) {
+			throw new IllegalArgumentException("There are no more registration plates available");
+		}
+		
+	}
+	
+	public void accelerate (int amount) {
+//		The accelerate method will increase the speed but never more than 200! It also adds to the distanceTravelled
+		speed = ((speed + amount) > 200) ? 200: (speed+amount) ;
+		distanceTravelled += speed;
+	}
+	
+	public void brake (int amount) {
+//		reduce the speed by amount.
+		speed = ((speed - amount) <= 0) ? 10: (speed-amount) ;
+		distanceTravelled += speed;
+	}
+	
+	public String getDetails () {
+		String[] labels = {"Speed: ", "Lane: ", "Travelled: ", "RegPlate: "};
+		String details = String.format("%12s%-5d | %12s%-5d | %12s%-5d | %12s%-8s\n",labels[0] ,speed, labels[1], lane, labels[2], distanceTravelled, labels[3], registrationPlate.getRegPlate());
+		return details;
+	}
+
+	public static int getCount() {
+		return Vehicle.count;
+	}
+
+	public int getDistanceTravelled() {
+		return distanceTravelled;
+	}
+
+	public int getLane() {
+		return lane;
+	}
+	
+	
+}

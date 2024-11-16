@@ -1,0 +1,32 @@
+package lab18;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class ProgramTests {
+
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}package lab18;
+
+import java.util.Comparator;
+
+public class PersonNameComparer implements Comparator<Person> {
+
+	@Override
+	public int compare(Person o1, Person o2) {
+		
+		return o1.name.compareToIgnoreCase(o2.name);
+	}
+
+}
+

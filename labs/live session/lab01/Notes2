@@ -1,0 +1,27 @@
+Status x = Status.ACTIVE;
+        Console.WriteLine(x + ":" + (int)x);
+
+        x = Status.CONTRACTOR;
+        Console.WriteLine(x + ":" + (int)x);
+
+        x = Status.ACTIVE | Status.PERMANENT;
+        Console.WriteLine(x + ":" + (int)x);
+
+        if( (x & Status.PERMANENT) == Status.PERMANENT)
+        {
+
+        }
+
+    }
+}
+
+
+public enum Status
+{
+    ACTIVE = 1,      // 0001
+    RETIRED = 2,     // 0010
+    CONTRACTOR = 4,  // 0100
+    PERMANENT = 8    // 1000
+        // 1001
+        // 1000 = 1000
+}
