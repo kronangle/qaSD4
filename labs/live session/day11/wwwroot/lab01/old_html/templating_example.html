@@ -1,0 +1,50 @@
+<template id="customer-template">
+    <tr>
+        <td id="customerID"><span>Hello</span><h4></h4></td>
+        <td id="contactName"></td>
+        <td id="city"></td>
+    </tr>
+</template>
+
+<table id="customer-container" border="1"></table>
+
+<script>
+    fetch('https://tx100.glitch.me/customers')
+        .then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            display2(data);
+        }).catch(function (error) {
+            alert(error);
+        });
+
+    function display(customers) {
+        const template = document.getElementById("customer-template");
+        const container = document.getElementById("customer-container");
+
+        for (let cus of customers) {
+            const clone = template.content.cloneNode(true);
+            clone.getElementById("customerID").textContent = cus.CustomerID;
+            clone.getElementById("contactName").textContent = cus.ContactName;
+            clone.getElementById("city").textContent = cus.City;
+            container.appendChild(clone);
+        }
+    }
+
+
+    function display2(customers) {
+        const template = document.getElementById("customer-template");
+        const container = document.getElementById("customer-container");
+
+        for (let cus of customers) {
+            const clone = template.content.cloneNode(true);
+            let first = clone.querySelector("#customerID h4");
+            first.style.color = "blue";
+            clone.querySelector("#customerID span").innerHTML = cus.Country;
+            first.textContent = cus.CustomerID;
+            clone.getElementById("contactName").textContent = cus.ContactName;
+            clone.getElementById("city").innerHTML = `<b>${cus.City}</b>`;
+            container.appendChild(clone);
+        }
+    }
+</script>
