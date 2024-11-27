@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scripts/jquery-3.2.1.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+
+    <script>
+        function addName() {
+            var name = $("#textInput").val();
+            $("<div>").text(name).appendTo("#names");    
+            $("#names div:odd").addClass("alternate");      
+
+            // $("#names").append(`<div>${name}</div>`);
+            return false;
+        }
+    </script>
+
+    <style>
+        .alternate {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form onsubmit="return addName()">
+        Type a name: <input type="text" id="textInput"/>
+        <input type="submit" value="Submit"/>
+
+    </form>
+
+    <div id="names"></div>
+
+</body>
+
+</html>
