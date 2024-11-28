@@ -1,0 +1,15 @@
+.alternate {
+    background-color: red;
+}
+
+span {
+    width: 50%;
+}
+
+#names {
+    width: 50%;
+}
+
+#nameList {
+    background-color: lightgrey;
+}
