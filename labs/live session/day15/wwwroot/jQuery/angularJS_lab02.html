@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="/scripts/angualrJS-scripts.js"></script>
+
+    <style>
+        td {
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+            padding-right: 10px;
+            background-color: rgb(244, 244, 90);
+        }
+
+        .white-space-pre-line {
+            white-space: pre-line;
+            border: 2px solid red;
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+
+<body ng-app="myModule" ng-controller="myController">
+    <div>
+        <button ng-click="getCustomers()">Fetch</button>
+        <h2 ng-show="customers==null && fetching == null">Wanting to load customers?</h2>
+        <h3 ng-show="fetching !=null">Loading...</h3>
+        <h3 class="white-space-pre-line" ng-hide="error == null">{{error}}</h3>
+        <table ng-hide="customers==null">
+            <tr ng-repeat="cus in customers">
+                <td>{{cus.CustomerID}}</td>
+                <td>{{cus.CompanyName}}</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+    <hr>
+    <div>{{message}}</div>
+    <div>{{products[0].name}}</div>
+    <div>{{products[2].name}}</div>
+
+    <div ng-repeat="product in products">
+        Name: {{product.name}}
+        Price: {{product.unitPrice}}
+        Stock: {{product.stockLevel}}
+        <hr>
+    </div>
+    <table border="1">
+        <tr ng-repeat="product in products" ng-click="products.selectProduct(product)">
+            <td>{{product.name}}</td>
+            <td>{{product.unitPrice}}</td>
+            <td>{{product.stockLevel}}</td>
+        </tr>
+    </table>
+    <div ng-hide="currentProduct==null">{{currentProduct.name}} - {{currentProduct.stockLevel}} -
+        {{currentProduct.unitPrice | currency:'£'}}</div>
+    <hr>
+    <table border="1">
+        <tr ng-repeat="cell in cells">
+            <td ng-repeat="cell in cells" ng-click="cells.selectNumber(cell)">{{cell}}</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script>
+        angular.module('myModule', [])
+            .controller('myController', function ($scope) {
+
+                $scope.message = "Hello";
+                $scope.currentProduct = null;
+
+                $scope.products = [
+                    {
+                        name: "eggs",
+                        unitPrice: 3.50,
+                        stockLevel: 42
+                    },
+                    {
+                        name: "milk",
+                        unitPrice: 2.25,
+                        stockLevel: 17
+                    },
+                    {
+                        name: "steak",
+                        unitPrice: 9.99,
+                        stockLevel: 8
+                    }
+                ];
+
+                $scope.products.selectProduct = (product) => {
+                    $scope.currentProduct = product;
+                }
+
+            });
+
+    </script>
+</head>
+
+<body ng-app="myModule" ng-controller="myController">
+    <div>{{message}}</div>
+    <div>{{products[0].name}}</div>
+    <div>{{products[2].name}}</div>
+
+    <div ng-repeat="product in products">
+        Name: {{product.name}}
+        Price: {{product.unitPrice}}
+        Stock: {{product.stockLevel}}
+        <hr>
+    </div>
+    <table border="1">
+        <tr ng-repeat="product in products" ng-click="products.selectProduct(product)">
+            <td>{{product.name}}</td>
+            <td>{{product.unitPrice}}</td>
+            <td>{{product.stockLevel}}</td>
+        </tr>
+    </table>
+    <div ng-hide="if {{currentProduct}} == null">{{currentProduct.unitPrice | currency:'£'}}</div>
+</body>
+
+</html>

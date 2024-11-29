@@ -1,0 +1,5 @@
+.invalid {
+    border:2px solid red;
+    /* color: rgb(118, 114, 112); */
+    background-color: rgb(199, 141, 228);
+}

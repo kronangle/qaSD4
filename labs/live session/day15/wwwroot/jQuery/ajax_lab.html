@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <script>
+        
+        // Method 1
+
+        // function getCustomers(display) {
+        //     fetch("http://localhost:5000/customers")
+        //         .then(res => {
+        //             return res.json();
+        //         }).then(data => {
+        //             display(data);
+        //         });
+        // }
+
+        // Method 2
+
+        // function getCustomers(displayFunctionToUseAtEnd) {
+        //     $.getJSON("http://localhost:5000/customers", function(result){
+        //         displayFunctionToUseAtEnd(result)
+        //     });
+        // }
+
+        // function display1(data) {
+        //     console.log(data);
+        // }
+
+        // function display2(data) {
+        //     for (let cus of data) {
+        //         console.log(cus.ContactName);
+        //     }
+        // }
+
+        function displayOnPage(data){
+            for (let item of data){
+                let name = item.name;
+                // let status = item.lineStatuses.statusSeverityDescription;
+                let status = item.lineStatuses[0];
+                status = status.statusSeverityDescription;
+
+                $("#results").append(`<div>Station: ${name}</div>`);
+                $("#results").append(`<div>Status: ${status}</div>`);
+            }
+            // $.each(data)
+        }
+
+        // getCustomers(display1);
+        // getCustomers(display2);
+
+        // async function getCustomers() {
+        //     const response = await fetch('https://txMike2.glitch.me/customers/ALFKI');
+        //     let data = await response.json();
+        //     console.log(data[0].City);
+        // }
+        // getCustomers();
+
+        $(()=> {
+            $.getJSON("example_json_data.json", function(result){
+                displayOnPage(result);
+            });
+        });
+
+    </script>
+
+    <div id="results"></div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        function getCustomers(display) {
+            fetch("https://tx100.glitch.me/customers")
+                .then(res => {
+                    return res.json();
+                }).then(data => {
+                    display(data);
+                });
+        }
+
+        function display1(data) {
+            console.log(data);
+        }
+
+        function display2(data) {
+            for (let cus of data) {
+                console.log(cus.CustomerID);
+            }
+        }
+
+        getCustomers(display1);
+        getCustomers(display2);
+
+        // async function getCustomers() {
+        //     const response = await fetch('https://txMike2.glitch.me/customers/ALFKI');
+        //     let data = await response.json();
+        //     console.log(data[0].City);
+        // }
+        // getCustomers();
+
+        // Error Handling
+        // (async () => {
+        //     try {
+        //         const response = await fetch('https://tx100.glitch.me/customers');
+
+        //         if (!response.ok) {
+        //             throw new Error(`HTTP error! Status: ${response.status}`);
+        //         }
+
+        //         const customers = await response.json();
+
+        //         for (let cus of customers) {
+        //             console.log(cus.ContactName);
+        //         }
+
+        //     } catch (error) {
+        //         console.error('Error fetching data:', error.message);
+        //     }
+        // })();
+    </script>
+</body>
+</html>

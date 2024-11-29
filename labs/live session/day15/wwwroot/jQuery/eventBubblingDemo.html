@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        div, p {
+            border: 2px solid brown;
+            padding: 2em;
+            font-size: x-large;
+        }
+
+        #div1 {
+            background-color: cyan;
+        }
+
+        #div2 {
+            background-color: darkkhaki;
+        }
+
+        #p1 {
+            background-color: antiquewhite;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            
+            $("#div1").click(function (e) {
+                alert($(e.target).attr('id') + "- div1 clicked" + "---this:-" + this.id);
+            });
+            $("#div2").click(function (e) {
+                alert($(e.target).attr('id') + "- div2 clicked" + "---this:-" + this.id);
+            });
+            $("p").click(function (e) {
+                alert($(e.target).attr('id') + "- p clicked" + "---this:-" + this.id);
+                return false;
+            });
+
+
+            $('#p1 input').keypress(function (e) {
+                if ((e.keyCode < 48 || e.keyCode > 57) && e.keyCode != 45) {
+                    return false;
+                }
+            });
+            $("input").click(function (e) {
+                return false;
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+    <div id="div1">
+        Outer div1
+        <div id="div2">
+            inner div2
+            <p id="p1">
+                Click this Paragraph in div2
+                <br />
+                <input type="text" />
+            </p>
+        </div>
+    </div>
+</body>
+</html>

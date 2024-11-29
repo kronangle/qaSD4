@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="/scripts/jquery-scripts.js" defer></script>
+    <link rel="stylesheet" href="/styles/coolStyles.css">
+
+</head>
+
+<body>
+
+    <form onsubmit="return addName()">
+        Type a name: <input type="text" id="textInput"/>
+        <input type="submit" value="Submit"/>
+    </form>
+    <span><div id="names"></div></span>
+    <span><ul id="nameList"></ul></span>
+
+    <select id="firstSelect" size="5">
+        <option value="value1">Option 1</option>
+        <option value="value2">Option 2</option>
+        <option value="value3">Option 3</option>
+        <option value="value3">Option 4</option>
+        <option value="value3">Option 5</option>
+    </select>
+    <button onclick="moveBack()"> <<< </button>
+    <button onclick="moveOver()"> >>> </button>
+    <select id="secondSelect" size="5">
+        
+    </select>
+</body>
+
+</html>
